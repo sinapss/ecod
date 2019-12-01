@@ -26,7 +26,21 @@
 							<input type="text" class="form-control" id="phone" placeholder="Telefon">
 						</div>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="fax" placeholder="Fax">
+							<input type="date" class="form-control" id="date" placeholder="Dogum Tarihi">
+						</div>
+                    </div>
+                    <div class="form-group dob">
+						<div class="col-sm-6">
+							<select name="" class="form-control" id="">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+						</div>
+						<div class="col-sm-6">
 						</div>
 					</div>
 					<div class="title-bg">
@@ -76,7 +90,7 @@
 					</div>
 					
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" >
                     <img src="images\kayitResim.png" width="100%" height="100%" alt="" class="responsive">
                 </div>
 			</div>

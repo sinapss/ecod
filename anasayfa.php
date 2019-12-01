@@ -25,7 +25,7 @@
 				</div>
 				<div class="item">
 					<div class="slide-type-1">
-						<img src="images\sikca-sorulan.jpg" alt="" class="img-responsive">
+						<a href="sss.php"><img src="images\sikca-sorulan.jpg" alt="" class="img-responsive"></a>
 					</div>
 				</div>
 				<div class="item">

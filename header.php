@@ -24,6 +24,7 @@
 
   </head>
   <body>
+      <div class="spacer"></div>
 	<div id="wrapper">
 	<div class="header"><!--Header -->
 		<div class="container">
@@ -88,7 +89,8 @@
 							<ul class="nav navbar-nav">
 								<li><a href="anasayfa.php" class="active">Anasayfa</a><div class="curve"></div></li>
 								<li><a href="kurlar.php">Geri Dönüşüm Kurları</a></li>
-								<li><a href="#">Sık Sorulan Sorular?</a></li>
+                                <li><a href="sss.php">Sık Sorulan Sorular?</a></li>
+                                <li><a href="duyuru.php">Duyurular</a></li>
 								<li><a href="iletisim.php">İletişim</a></li>
 							</ul>
 						</div>
@@ -101,7 +103,7 @@
 	<div class="container">
 		<ul class="small-menu"><!--small-nav -->
 			<li><a href="" class="myacc">Hesabım</a></li>
-			<li><a href="" class="myshop">Satış Geçmişim</a></li>
+			<li><a href="satislarim.php" class="myshop">Satış Geçmişim</a></li>
 			<li><a href="" class="mycheck">Güvenli Çıkış</a></li>
 		</ul><!--small-nav -->
 		<div class="clearfix"></div>
