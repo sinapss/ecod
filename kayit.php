@@ -2,7 +2,7 @@
 
 
 <div class="container">
-<form class="form-horizontal checkout" role="form">
+<form class="form-horizontal checkout" method="POST" action="admin/erisim/islem.php">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="title-bg">
@@ -10,66 +10,64 @@
 					</div>
 					<div class="form-group dob">
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="name" placeholder="İsim">
+							<input type="text" class="form-control"  name="ad" placeholder="İsim">
 						</div>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="last_name" placeholder="Soyisim">
+							<input type="text" class="form-control" name="soyad" placeholder="Soyisim">
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-12">
-							<input type="text" class="form-control" id="email" placeholder="Email">
+							<input type="text" class="form-control" name="email" placeholder="Email">
 						</div>
 					</div>
 					<div class="form-group dob">
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="phone" placeholder="Telefon">
+							<input type="text" class="form-control" name="telefon" placeholder="Telefon">
 						</div>
 						<div class="col-sm-6">
-							<input type="date" class="form-control" id="date" placeholder="Dogum Tarihi">
+							<input type="date" class="form-control" name="dogum_tarihi" placeholder="Dogum Tarihi">
 						</div>
                     </div>
-                    <div class="form-group dob">
+                    
+					<div class="form-group dob">
 						<div class="col-sm-6">
-							<select name="" class="form-control" id="">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                            </select>
+							<input type="password" class="form-control" name="parola_bir" placeholder="Parola">
+						</div>
+						<div class="col-sm-6">
+							<input type="password" class="form-control" name="parola_iki" placeholder="Parolanızı doğrulayın">
 						</div>
 						<div class="col-sm-6">
 						</div>
 					</div>
+					
 					<div class="title-bg">
 						<div class="title">Banka Bilgileri</div>
 					</div>
 					<div class="form-group dob">
 						<div class="col-sm-12">
-							<input type="text" class="form-control" id="username-2" placeholder="Banka Adı">
+							<input type="text" class="form-control" name="banka_adi" placeholder="Banka Adı">
 						</div>
                     </div>
                     <div class="form-group dob">
 						<div class="col-sm-12">
-							<input type="text" class="form-control" id="username-2" placeholder="Kart üzerindeki isim">
+							<input type="text" class="form-control" name="kart_sahibi" placeholder="Kart üzerindeki isim">
 						</div>
                     </div>
                     <div class="form-group dob">
 						<div class="col-sm-12">
-							<input type="text" class="form-control" id="username-2" placeholder="Kart No">
+							<input type="text" class="form-control" name="kart_no" placeholder="Kart No">
 						</div>
 					</div>
 					<div class="form-group dob">
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="conpass" placeholder="Güvenlik Kodu">
+							<input type="text" class="form-control" name="guvenlik_kod" placeholder="Güvenlik Kodu">
 						</div>
 						<div class="col-sm-6">
-							<input type="date" class="form-control">
+							<input type="date" name="son_tarih" class="form-control">
 						</div>
 					</div>
-					<button class="btn btn-default btn-info">Kayıt</button>
+					<input type="submit" value="kayit" name="kullanici_kaydet" class="btn btn-default btn-info">
 				</div>
 				<div class="col-md-6">
 					<div class="title-bg">
@@ -77,15 +75,15 @@
 					</div>
 					<div class="form-group">
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="company" placeholder="İL">
+							<input type="text" class="form-control" name="il" placeholder="İL">
                         </div>
                         <div class="col-sm-6">
-							<input type="text" class="form-control" id="address" placeholder="İLÇE">
+							<input type="text" class="form-control" name="ilce" placeholder="İLÇE">
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-12">
-							<input type="text" class="form-control" id="address" placeholder="Adress">
+							<input type="text" class="form-control" name="adres" placeholder="Adres">
 						</div>
 					</div>
 					

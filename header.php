@@ -88,10 +88,10 @@
 						<div class="navbar-collapse collapse">
 							<ul class="nav navbar-nav">
 								<li><a href="anasayfa.php" class="active">Anasayfa</a><div class="curve"></div></li>
-								<li><a href="kurlar.php">Geri Dönüşüm Kurları</a></li>
-                                <li><a href="sss.php">Sık Sorulan Sorular?</a></li>
+								<li><a href="kurlar.php"> Geri Dönüşüm Kurları</a></li>
                                 <li><a href="duyuru.php">Duyurular</a></li>
-								<li><a href="iletisim.php">İletişim</a></li>
+                                <li><a href="sss.php">S.S.S</a></li>
+                                <li><a href="iletisim.php">İletişim</a></li>
 							</ul>
 						</div>
 					</div>
@@ -102,7 +102,7 @@
 
 	<div class="container">
 		<ul class="small-menu"><!--small-nav -->
-			<li><a href="" class="myacc">Hesabım</a></li>
+			<li><a href="hesabim.php" class="myacc">Hesabım</a></li>
 			<li><a href="satislarim.php" class="myshop">Satış Geçmişim</a></li>
 			<li><a href="" class="mycheck">Güvenli Çıkış</a></li>
 		</ul><!--small-nav -->

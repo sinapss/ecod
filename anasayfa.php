@@ -30,7 +30,7 @@
 				</div>
 				<div class="item">
 					<div class="slide-type-1">
-						<img src="images\duyuru.jpg" alt="" class="img-responsive">
+						<a href="duyuru.php"><img src="images\duyuru.jpg" alt="" class="img-responsive"></a>
 					</div>
 				</div>
 			</div>
@@ -66,12 +66,6 @@
 				<div class="slide-type-1-sync">
 					<h3>Duyurular</h3>
 					<p>Önemli olabilicek duyurular</p>
-				</div>
-			</div>
-			<div class="item">
-				<div class="slide-type-1-sync">
-					<h3>Nike Airmax</h3>
-					<p>Description here here here</p>
 				</div>
 			</div>
 		</div>
