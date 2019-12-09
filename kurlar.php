@@ -8,37 +8,41 @@ include 'header.php';
 			<div class="col-md-3">
 				<div class="productwrap">
 					<div class="pr-img">
-						<a href="product.htm"><img src="images\geriDonusumPlastik.jpg" alt="" class="img-responsive"></a>
+						<a href="#"><img src="images\plastikDonusum.jpg" alt="" class="img-responsive"></a>
 						<div class="pricetag"><div class="inner"><img width="70" height="70" src="images\down.png" alt=""></div></div>
 					</div>
 					<div class="title">Plastik</div>
+					<span>9,50<span class="badge badge-pill badge-success">KG</span></span>
 				</div>
 			</div>
 			<div class="col-md-3">
 				<div class="productwrap">
 					<div class="pr-img">
-						<a href="product.htm"><img src="images\geriDonusumCam.jpg" alt="" class="img-responsive"></a>
+						<a href="#"><img src="images\camDonusum.jpg" alt="" class="img-responsive"></a>
 						<div class="pricetag"><div class="inner"><img width="70" height="70" src="images\up.png" alt=""></div></div>
 					</div>
 					<div class="title">Cam</div>
+					<span>2,33<span class="badge badge-pill badge-success">KG</span></span>
 				</div>
 			</div>	
 			<div class="col-md-3">
 				<div class="productwrap">
 					<div class="pr-img">
-						<a href="product.htm"><img src="images\geriDonusumKagit.jpg" alt="" class="img-responsive"></a>
+						<a href="#"><img src="images\kagitDonusum.jpg" alt="" class="img-responsive"></a>
 						<div class="pricetag"><div class="inner"><img width="70" height="70" src="images\up.png" alt=""></div></div>
 					</div>
 					<div class="title">Kağıt</div>
+					<span>1,22<span class="badge badge-pill badge-success">KG</span></span>
 				</div>
 			</div>	
 			<div class="col-md-3">
 				<div class="productwrap">
 					<div class="pr-img">
-						<a href="product.htm"><img src="images\geriDonusumMetal.jpg" alt="" class="img-responsive"></a>
+						<a href="#"><img src="images\metalDonusum.jpg" alt="" class="img-responsive"></a>
 						<div class="pricetag"><div class="inner"><img width="70" height="70" src="images\up.png" alt=""></div></div>
 					</div>
 					<div class="title">Metal</div>
+					<span>5,66<span class="badge badge-pill badge-success">KG</span></span>
 				</div>
 			</div>	
 			

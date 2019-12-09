@@ -31,7 +31,7 @@
 				</div>
 				
 				<div class="ads">
-					<a href="product.htm"><img src="images\reklam.jpg" class="img-responsive" alt=""></a>
+					<a href="#"><img src="images\reklam.jpg" class="img-responsive" alt=""></a>
 				</div>
 				
 				

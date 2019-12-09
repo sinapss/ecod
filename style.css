@@ -27,7 +27,7 @@ html,body {
 	background:#909090;
 }
 /**---------------Main Header Set------------------------------------------**/
-.header {background-color: snow;
+.header {background-color:#f3ffe7;
 	width:100%;
 }
 .logo{
@@ -931,12 +931,12 @@ html,body {
 /**---------------Fotter Widget------------------------------------------**/
 .f-widget {
 	width:100%;
-	background-color: snow;
+	background-color:#f3ffe7;
 	height:auto !important;
 	border-top:1px dashed #c2cbd3;
 	border-bottom:1px dashed #c2cbd3;
 	max-width:100%;
-	background-color: snow;
+	background-color:#f3ffe7;
 }
 
 .title-widget-bg{

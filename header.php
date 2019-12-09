@@ -24,7 +24,6 @@
 
   </head>
   <body>
-      <div class="spacer"></div>
 	<div id="wrapper">
 	<div class="header"><!--Header -->
 		<div class="container">
@@ -87,8 +86,8 @@
 						</div>
 						<div class="navbar-collapse collapse">
 							<ul class="nav navbar-nav">
-								<li><a href="anasayfa.php" class="active">Anasayfa</a><div class="curve"></div></li>
-								<li><a href="kurlar.php"> Geri Dönüşüm Kurları</a></li>
+								<li><a href="anasayfa.php" >Anasayfa</a><div class="curve"></div></li>
+								<li><a href="kurlar.php" class="active"> Geri Dönüşüm Kurları</a></li>
                                 <li><a href="duyuru.php">Duyurular</a></li>
                                 <li><a href="sss.php">S.S.S</a></li>
                                 <li><a href="iletisim.php">İletişim</a></li>

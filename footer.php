@@ -5,15 +5,9 @@
 					<div class="title-widget-bg">
 						<div class="title-widget">Sosyal Medya Hesaplarımız </div>
 					</div>
-					<ul class="tweets">
-						<li>Check out this great #themeforest item for you
-						'Simpler Landing' <a href="#">http://t.co/LbLwldb6 </a>
-						<span>2 hours ago</span></li>
-						<li class="lastone">Check out this great #themeforest item for you
-						'Simpler Landing' <a href="#">http://t.co/LbLwldb6 </a>
-						<span>2 hours ago</span></li>
-					</ul>
 					<div class="clearfix"></div>
+					<a href="#" class="btn btn-default btn-follow"><i class="fa fa-facebook fa-2x"></i><div>Facebook hesabımızı takip edin</div></a>
+					<a href="#" class="btn btn-default btn-follow"><i class="fa fa-instagram fa-2x"></i><div>İnstagram hesabımızı takip edin</div></a>
 					<a href="#" class="btn btn-default btn-follow"><i class="fa fa-twitter fa-2x"></i><div>Twitter hesabımızı takip edin</div></a>
 				</div><!--footer twitter widget-->
 				<div class="col-md-4"><!--footer newsletter widget-->
@@ -52,11 +46,11 @@
 			<div class="row">
 				<div class="col-md-9">
 					<ul class="footermenu"><!--footer nav-->
-						<li><a href="index-1.htm">Home</a></li>
-						<li><a href="cart.htm">My Cart</a></li>
-						<li><a href="checkout.htm">Checkout</a></li>
-						<li><a href="order.htm">Completed Orders</a></li>
-						<li><a href="contact.htm">Contact us</a></li>
+						<li><a href="anasayfa.php">AnaSayfa</a></li>
+						<li><a href="kurlar.php">Kurlar</a></li>
+						<li><a href="duyuru.php">Duyurular</a></li>
+						<li><a href="sss.php">SSS</a></li>
+						<li><a href="iletisim">İletişim</a></li>
 					</ul><!--footer nav-->
 					<div class="f-credit">&copy;All rights reserved by <a href="#">yoursite.com</a></div>
 					<a href=""><div class="payment visa"></div></a>
@@ -65,7 +59,7 @@
 					<a href=""><div class="payment nh"></div></a>
 				</div>
 <div class="col-md-3"><!--footer Share-->
-					<div class="followon">Follow us on</div>
+					<div class="followon">Takip edin</div>
 					<div class="fsoc">
 						<a href="http://twitter.com/minimalthemes" class="ftwitter">twitter</a>
 						<a href="http://www.facebook.com/pages/Minimal-Themes/264056723661265" class="ffacebook">facebook</a>

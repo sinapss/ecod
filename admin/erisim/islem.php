@@ -15,7 +15,7 @@ if(isset($_POST["kullanici_kaydet"])){
      
 
         //parolanın 6 haneden büüykmü bakar
-        if(strlen(($kullanici_parola_bir)>=6)){//veri tabanına daha önce bu kayıttatelefon ile kayıt oluşturulmuşmu diye soruyor
+        
             $kullanicisor=$db->prepare("select * from kullanici where kullanici_tel=:tel");
 			$kullanicisor->execute(array(
                 'tel'=>$kullanici_telefon
@@ -51,12 +51,12 @@ if(isset($_POST["kullanici_kaydet"])){
 
                     if($ekle){
                         //header("Location:../../index.php?durum=loginbasarili");
-                        echo "başardık";
+                        echo "kayit başarılı";
 
                     }
                     else{//kayıt sırasında hata oluşursa
                         //header("Location:../../register.php?durum=basarisiz");
-                        echo "kayıt hatsı";
+                        echo "kayıt hatasi";
                     }
 
                 }
@@ -64,11 +64,10 @@ if(isset($_POST["kullanici_kaydet"])){
                     //header("Location:../../register.php?durum=mukerrerkayit");
                     echo "aynı telefon var";
                 }
-        }
 
     }else{
         //header("Location:../../register.php?durum=farklisifre");
-        echo "şifre ayı değil";
+        echo "şifre aynı değil";
     }
 
 }

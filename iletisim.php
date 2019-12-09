@@ -27,14 +27,7 @@
 		</div>
 		<div class="qc">
 			<form role="form">
-				<div class="form-group">
-					<label for="name">İsim<span>*</span></label>
-					<input type="text" class="form-control" id="name">
-				</div>
-				<div class="form-group">
-					<label for="email">Email<span>*</span></label>
-					<input type="email" class="form-control" id="email">
-				</div>
+				
 				<div class="form-group">
 					<label for="text">Mesaj<span>*</span></label>
 					<textarea class="form-control" id="text"></textarea>
