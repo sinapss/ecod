@@ -1,6 +1,21 @@
 <?php include "header.php"; ?>
 
 <div class="container">
+<div class="row">
+		<div class="col-md-12">
+			<div class="page-title-wrap">
+				<div class="page-title-inner">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="bigtitle">Satişlarım</div>
+							<p >Geçmiş Satış Geçmişim.</p>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 <div id="title-bg">
 			<div class="title">Orders</div>
 		</div>

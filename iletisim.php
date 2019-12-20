@@ -1,6 +1,21 @@
 <?php include 'header.php'; ?>
 
 <div class="container">
+<div class="row">
+		<div class="col-md-12">
+			<div class="page-title-wrap">
+				<div class="page-title-inner">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="bigtitle">İletişim Bilgileri</div>
+							<p >İletişim bilgilerimiz ve hızlı iletişim.</p>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 <div class="title-bg">
 			<div class="title">İletişim</div>
 		</div>

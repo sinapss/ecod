@@ -2,6 +2,21 @@
 
 <div class="container">
 <div class="row">
+		<div class="col-md-12">
+			<div class="page-title-wrap">
+				<div class="page-title-inner">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="bigtitle">Duyurular</div>
+							<p >Acil Duyurulara Dikkat Ediniz.</p>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="row">
 			<div class="col-md-9"><!--Main content-->
 				<div class="title-bg">
 					<div class="title">Duyurular</div>

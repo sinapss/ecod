@@ -3,6 +3,21 @@ include 'header.php';
 ?>
 	
 	<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-title-wrap">
+				<div class="page-title-inner">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="bigtitle">Geri Dönüşüm Kurları</div>
+							<p >Satış Yaptığınız Gündeki Kur Geçerlidir.</p>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 		
 		<div class="row prdct"><!--Products-->
 			<div class="col-md-3">

@@ -2,6 +2,21 @@
 
 
 <div class="container">
+<div class="row">
+		<div class="col-md-12">
+			<div class="page-title-wrap">
+				<div class="page-title-inner">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="bigtitle">Kayıt</div>
+							<p>Tüm Bilgileri Eksiksiz Doldurunuz.</p>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 <form class="form-horizontal checkout" method="POST" action="admin/erisim/islem.php">
 			<div class="row">
 				<div class="col-md-6">

@@ -22,7 +22,7 @@
 							<div class="form-group">
 								<label>Mail adresiniz</label>
 								<input type="email" class="form-control newstler-input" id="exampleInputEmail1" placeholder="Mail Adresiniz">
-								<button class="btn btn-default btn-red btn-sm">Gönder</button>
+								<button class="btn btn-default btn-success btn-sm">Gönder</button>
 							</div>
 						</form>
 					</div>
@@ -32,7 +32,7 @@
 						<div class="title-widget-cursive">İletişim Bilgilerimiz</div>
 					</div>
 					<ul class="contact-widget">
-						<li class="fphone">+90212 666 66 66 <br> +90212 222 22</li>
+						<li class="fmobile">+90212 666 66 66 <br> +90212 222 22</li>
 						<li class="fmobile">+90532 666 66 66<br>+90532 222 22 22</li>
 						<li class="fmail lastone">iletisim@ecod.com<br>info@ecod.com</li>
 					</ul>
@@ -52,7 +52,7 @@
 						<li><a href="sss.php">SSS</a></li>
 						<li><a href="iletisim">İletişim</a></li>
 					</ul><!--footer nav-->
-					<div class="f-credit">&copy;All rights reserved by <a href="#">yoursite.com</a></div>
+					<div class="f-credit">&copy;Bu Sitenin Tüm Haklari Saklıdır</div>
 					<a href=""><div class="payment visa"></div></a>
 					<a href=""><div class="payment paypal"></div></a>
 					<a href=""><div class="payment mc"></div></a>

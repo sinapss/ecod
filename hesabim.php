@@ -76,14 +76,6 @@
 				<div class="form-group dob">
 					<div class="col-sm-12">
 						
-						<input type="text" class="form-control"  required="" name="kullanici_tc" value="<?php echo $kullanicicek['kullanici_tc']; ?>" placeholder="Tc Giriniz...">
-					</div>
-					
-				</div>
-
-				<div class="form-group dob">
-					<div class="col-sm-12">
-						
 						<input type="text" class="form-control"  required="" name="kullanici_il" value="<?php echo $kullanicicek['kullanici_il']; ?>" placeholder="İl Giriniz...">
 					</div>
 					

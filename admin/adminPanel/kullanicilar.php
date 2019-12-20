@@ -41,6 +41,7 @@ $kullaniciGetir->execute();
                    <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                       <thead>
                         <tr>
+                          <th>Kullanici ID</th>
                           <th>Kayıt Tarihi</th>
                           <th>Ad</th>
                           <th>Soyad</th>
@@ -59,15 +60,15 @@ $kullaniciGetir->execute();
                        while($kullaniciYaz=$kullaniciGetir->fetch(PDO::FETCH_ASSOC)){
 
                            ?>
+                          <td><?php echo $kullaniciYaz["kullanici_id"]; ?></td>
                           <td><?php echo $kullaniciYaz["kullanici_kayit_tarih"];  ?></td>  
                           <td><?php echo $kullaniciYaz["kullanici_ad"]; ?></td>
                           <td><?php echo $kullaniciYaz["kullanici_soyad"]; ?></td>
                           <td><?php echo $kullaniciYaz["kullanici_mail"];  ?></td>
                           <td><?php echo $kullaniciYaz["kullanici_tel"]; ?> </td>
                           <td><?php echo $kullaniciYaz["kullanici_yas"]; ?></td>
-                          <td><center><a href="#"><button class="btn btn-primary btn-xs">Düzenle</button></a></center></td>
-                          
-                          <td><center><a href="#"><button class="btn btn-danger btn-xs">Sil</button></a></center></td>  
+                          <td><center><a href="kullanici-duzenle.php?kullanici_id=<?php echo $kullaniciYaz['kullanici_id'];?>"><button class="btn btn-primary btn-xs">Düzenle</button></a></center></td>                          
+                          <td><center><a href="../erisim/islem.php?kullanici_id=<?php echo $kullaniciYaz['kullanici_id'];?>&kullanicisil=ok"><button class="btn btn-danger btn-xs">Sil</button></a></center></td>  
 
                         <tr>                        
                         </tr>

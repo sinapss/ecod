@@ -72,5 +72,86 @@ if(isset($_POST["kullanici_kaydet"])){
 
 }
 
+/*
+if (isset($_POST['kullaniciduzenle'])) {
+
+	$kullaniciguncelle=$db->prepare("UPDATE kullanici SET 
+		kullanici_ad=:kullanici_ad,
+		kullanici_soyad=:kullanici_soyad,
+		kullanici_gsm=:kullanici_tel
+		WHERE kullanici_id={$_POST['kullanici_id']}");
+
+	$update=$kullaniciguncelle->execute(array(
+		'kullanici_ad' => $_POST['kullanici_ad'],
+		'kullanici_soyad' => $_POST['kullanici_soyad'],
+        'kullanici_tel' => $_POST['kullanici_tel']));
+        
+    $kulAdresGuncelle=$db->prepare("UPDATE adres SET
+        'il'=:il,
+        'ilce'=:ilce,
+        'adres'=:adres,
+        'kullanici_id'=:kullanici_id
+        WHERE kullanici_id={$_POST['kullanici_id']}");
+
+    $update=$kulAdresGuncelle->execute(array(
+        'il'=>$_POST['il'],
+        'ilce'=>$_POST['ilce'],
+        'kullanici_id'=>$_POST['kullanici_id'],
+        'adres'=>$_POST['adres']));
+}
+*/
+if (isset($_POST['kullaniciduzenle'])) {
+	
+	$kullanici_id=$_POST['kullanici_id'];
+
+	$kullaniciguncelle=$db->prepare("UPDATE kullanici SET 
+		kullanici_ad=:kullanici_ad,
+		kullanici_soyad=:kullanici_soyad,
+		kullanici_tel=:kullanici_tel 
+		WHERE kullanici_id={$_POST['kullanici_id']}");
+
+	$update=$kullaniciguncelle->execute(array(
+		'kullanici_ad' => $_POST['kullanici_ad'],
+		'kullanici_soyad' => $_POST['kullanici_soyad'],
+        'kullanici_tel' => $_POST['kullanici_tel']));
+        
+        $kullaniciguncelle=$db->prepare("UPDATE adres SET 
+		il=:il,
+		ilce=:ilce,
+		adres=:adres 
+		WHERE kullanici_id={$_POST['kullanici_id']}");
+
+	$update=$kullaniciguncelle->execute(array(
+		'il' => $_POST['kullanici_id'],
+		'ilce' => $_POST['kullanici_ilce'],
+		'adres' => $_POST['kullanici_adres']));
+
+	if($update){
+		Header("Location:../adminPanel/kullanicilar.php?kullanici_id=$kullanici_id&durum=ok");
+	}
+	else{//düzenle
+		Header("Location:../production/kullanici-duzenle.php?kullanici_id=$kullanici_id&durum=no");
+	}
+    
+}
+
+if($_GET['kullanicisil']){
+
+	$sil=$db->prepare("DELETE from kullanici WHERE kullanici_id=:id");
+	$kontrol=$sil->execute(array(
+        'id'=> $_GET['kullanici_id']));
+        
+        $sil=$db->prepare("DELETE from adres WHERE kullanici_id=:id");
+	$kontrol=$sil->execute(array(
+		'id'=> $_GET['kullanici_id']));
+
+	if($kontrol){
+		header("location:../adminPanel/kullanicilar.php?sil=ok");
+	}
+	else{
+		header("location:../adminPanel/admin.php?sil=no");
+	}
+}
+
 
 ?>

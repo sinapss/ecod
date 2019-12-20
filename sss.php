@@ -2,6 +2,21 @@
 
 <div class="container">
 <div class="row">
+		<div class="col-md-12">
+			<div class="page-title-wrap">
+				<div class="page-title-inner">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="bigtitle">SSS</div>
+							<p>Sık Sorulan Sorular</p>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="row">
 			<div class="col-md-9"><!--Main content-->
 				<div class="title-bg">
 					<div class="title">Sıkça Sorulan Sorular S.S.S</div>
