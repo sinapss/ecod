@@ -72,34 +72,7 @@ if(isset($_POST["kullanici_kaydet"])){
 
 }
 
-/*
-if (isset($_POST['kullaniciduzenle'])) {
 
-	$kullaniciguncelle=$db->prepare("UPDATE kullanici SET 
-		kullanici_ad=:kullanici_ad,
-		kullanici_soyad=:kullanici_soyad,
-		kullanici_gsm=:kullanici_tel
-		WHERE kullanici_id={$_POST['kullanici_id']}");
-
-	$update=$kullaniciguncelle->execute(array(
-		'kullanici_ad' => $_POST['kullanici_ad'],
-		'kullanici_soyad' => $_POST['kullanici_soyad'],
-        'kullanici_tel' => $_POST['kullanici_tel']));
-        
-    $kulAdresGuncelle=$db->prepare("UPDATE adres SET
-        'il'=:il,
-        'ilce'=:ilce,
-        'adres'=:adres,
-        'kullanici_id'=:kullanici_id
-        WHERE kullanici_id={$_POST['kullanici_id']}");
-
-    $update=$kulAdresGuncelle->execute(array(
-        'il'=>$_POST['il'],
-        'ilce'=>$_POST['ilce'],
-        'kullanici_id'=>$_POST['kullanici_id'],
-        'adres'=>$_POST['adres']));
-}
-*/
 if (isset($_POST['kullaniciduzenle'])) {
 	
 	$kullanici_id=$_POST['kullanici_id'];
@@ -151,6 +124,90 @@ if($_GET['kullanicisil']){
 	else{
 		header("location:../adminPanel/admin.php?sil=no");
 	}
+}
+
+if (isset($_POST['sliderkaydet'])) {
+
+
+	$uploads_dir = '../../images';
+	@$tmp_name = $_FILES['slider_resimyol']["tmp_name"];
+	@$name = $_FILES['slider_resimyol']["name"];
+	//resmin isminin benzersiz olması
+	$benzersizsayi1=rand(20000,32000);
+	$benzersizsayi2=rand(20000,32000);
+	$benzersizsayi3=rand(20000,32000);
+	$benzersizsayi4=rand(20000,32000);	
+	$benzersizad=$benzersizsayi1.$benzersizsayi2.$benzersizsayi3.$benzersizsayi4;
+	$refimgyol=substr($uploads_dir, 6)."/".$benzersizad.$name;
+	@move_uploaded_file($tmp_name, "$uploads_dir/$benzersizad$name");
+	
+
+
+	$kaydet=$db->prepare("INSERT INTO slider SET
+		slider_ad=:slider_ad,
+		slider_sira=:slider_sira,
+		slider_link=:slider_link,
+		slider_resimyol=:slider_resimyol,
+        slider_durum=:slider_durum
+		");
+	$insert=$kaydet->execute(array(
+		'slider_ad' => $_POST['slider_ad'],
+		'slider_sira' => $_POST['slider_sira'],
+		'slider_link' => $_POST['slider_link'],
+        'slider_resimyol' => $refimgyol,
+        'slider_durum'=>$_POST['slider_durum']
+		));
+
+	if ($insert) {
+
+		Header("Location:../adminPanel/slider.php?durum=ok");
+
+	} else {
+
+		Header("Location:../adminPanel/slider.php?durum=no");
+	}
+
+
+
+
+}
+
+if($_GET['slidersil']=="ok"){
+
+	$sil=$db->prepare("DELETE from slider WHERE slider_id=:id");
+	$kontrol=$sil->execute(array(
+		'id'=> $_GET['slider_id']));
+
+	if($kontrol){
+		header("Location:../adminPanel/slider.php?durum=ok");
+	}
+	else{
+		header("Location:../adminPanel/slider.php?durum=no");
+	}
+}
+
+if(isset($_POST['sliderguncelle'])){
+
+    $sliderguncelle=$db->prepare("UPDATE slider SET 
+    slider_ad=:slider_ad,
+    slider_sira=:slider_sira,
+    slider_link=:slider_link,
+    slider_durum=:slider_durum
+    WHERE slider_id={$_POST['slider_id']}");
+
+$update=$sliderguncelle->execute(array(
+'slider_ad' => $_POST['slider_ad'],
+'slider_sira' => $_POST['slider_sira'],
+'slider_link' => $_POST['slider_link'],
+'slider_durum' => $_POST['slider_durum']
+));
+
+if($update){
+header("Location:../adminPanel/slider.php?durum=ok");
+}
+else{
+header("Location:../adminPanel/slider.php?durum=no");
+}
 }
 
 

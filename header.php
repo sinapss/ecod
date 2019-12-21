@@ -1,3 +1,4 @@
+<?php include "admin/erisim/baglan.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

@@ -1,6 +1,6 @@
 <?php include "header.php";
 
-$kullaniciGetir=$db->prepare("SELECT * FROM kullanici");
+$kullaniciGetir=$db->prepare("SELECT * FROM kullanici k inner join adres a on a.kullanici_id=k.kullanici_id");
 $kullaniciGetir->execute();
 ?>
 
@@ -48,8 +48,9 @@ $kullaniciGetir->execute();
                           <th>Mail Adresi</th>
                           <th>Telefon</th>
                           <th>Dogum Tarihi</th>
-                          <th></th>
-                          <th></th>
+                          <th>İl</th>
+                          <th>İlce</th>
+                          <th>Adres</th>
                           
                         </tr>
                       </thead>
@@ -67,6 +68,9 @@ $kullaniciGetir->execute();
                           <td><?php echo $kullaniciYaz["kullanici_mail"];  ?></td>
                           <td><?php echo $kullaniciYaz["kullanici_tel"]; ?> </td>
                           <td><?php echo $kullaniciYaz["kullanici_yas"]; ?></td>
+                          <td><?php echo $kullaniciYaz["il"]; ?></td>
+                          <td><?php echo $kullaniciYaz["ilce"]; ?></td>
+                          <td><?php echo $kullaniciYaz["adres"]; ?></td>
                           <td><center><a href="kullanici-duzenle.php?kullanici_id=<?php echo $kullaniciYaz['kullanici_id'];?>"><button class="btn btn-primary btn-xs">Düzenle</button></a></center></td>                          
                           <td><center><a href="../erisim/islem.php?kullanici_id=<?php echo $kullaniciYaz['kullanici_id'];?>&kullanicisil=ok"><button class="btn btn-danger btn-xs">Sil</button></a></center></td>  
 
