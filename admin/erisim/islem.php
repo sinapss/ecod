@@ -265,6 +265,40 @@ if($_GET['urunsil']=="ok"){
 	}
 }
 
+if (isset($_POST['kurekle'])) {
+	
+
+	$urunekle=$db->prepare("INSERT INTO kur SET 
+		urun_id=:urun_id,
+		fiyat=:fiyat");
+
+	$insert=$urunekle->execute(array(
+		'urun_id' => $_POST['urun_id'],
+		'fiyat' => $_POST['fiyat']
+	));
+
+	if($insert){
+		Header("Location:../adminPanel/kur.php?durum=ok");
+	}
+	else{
+		Header("Location:../adminPanel/kur-ekle.php?durum=no");
+	}
+}
+
+if($_GET['kursil']=="ok"){
+
+	$sil=$db->prepare("DELETE from kur WHERE kur_id=:id");
+	$kontrol=$sil->execute(array(
+		'id'=> $_GET['kur_id']));
+
+	if($kontrol){
+		header("Location:../adminPanel/kur.php?durum=ok");
+	}
+	else{
+		header("Location:../adminPanel/kur.php?durum=no");
+	}
+}
+
 
 
 ?>
