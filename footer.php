@@ -1,3 +1,4 @@
+<?php include "admin/erisim/baglan.php"; ?>
 <div class="f-widget"><!--footer Widget-->
 		<div class="container">
 			<div class="row">
@@ -18,11 +19,11 @@
 						<p>
 							Size ulaşmak için mail adresinizi giriniz
 						</p>
-						<form role="form">
+						<form action="admin/erisim/islem.php" method="POST">
 							<div class="form-group">
 								<label>Mail adresiniz</label>
-								<input type="email" class="form-control newstler-input" id="exampleInputEmail1" placeholder="Mail Adresiniz">
-								<button class="btn btn-default btn-success btn-sm">Gönder</button>
+								<input type="email" class="form-control newstler-input" name="email" id="exampleInputEmail1" placeholder="Mail Adresiniz">
+								<button class="btn btn-default btn-success btn-sm" name="iletisimgonder">Gönder</button>
 							</div>
 						</form>
 					</div>

@@ -24,14 +24,18 @@
 			</div>
 		</div>
 		<div class="bar"></div>
+		<?php
+		$slidersor=$db->prepare("SELECT * FROM slider");
+		$slidersor->execute();
+		while ($slidercek=$slidersor->fetch(PDO::FETCH_ASSOC)) {  ?>
 		<div id="sync2" class="owl-carousel">			
             <div class="item">
 				<div class="slide-type-1-sync">
 					<h3><?php echo $slidercek['slider_ad']; ?></h3>
-					<p>Tükettikçe Güçleniyor!!!</p>
 				</div>
 			</div>			
 		</div>
+		<?php } ?>
 	</div>
 	
 	</div>

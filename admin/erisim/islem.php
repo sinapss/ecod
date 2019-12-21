@@ -299,6 +299,38 @@ if($_GET['kursil']=="ok"){
 	}
 }
 
+if($_GET['iletisimisteksil']=="ok"){
+
+	$sil=$db->prepare("DELETE from anonim_iletisim WHERE iletisim_id=:id");
+	$kontrol=$sil->execute(array(
+		'id'=> $_GET['iletisim_id']));
+
+	if($kontrol){
+		header("Location:../adminPanel/iletisimistek.php?durum=ok");
+	}
+	else{
+		header("Location:../adminPanel/iletisimistek.php?durum=no");
+	}
+}
+
+if (isset($_POST['iletisimgonder'])) {
+	
+
+	$urunekle=$db->prepare("INSERT INTO anonim_iletisim SET 
+		mesaj=:mesaj");
+
+	$insert=$urunekle->execute(array(
+		'mesaj' => $_POST['email']
+	));
+
+	if($insert){
+		Header("Location:../../anasayfa.php?durum=ok");
+	}
+	else{
+		Header("Location:../../anasayfa.php?durum=no");
+	}
+}
+
 
 
 ?>
