@@ -210,5 +210,61 @@ header("Location:../adminPanel/slider.php?durum=no");
 }
 }
 
+if (isset($_POST['urunekle'])) {
+	
+
+	$urunekle=$db->prepare("INSERT INTO urun SET 
+		urun=:urun_ad,
+		urun_durum=:urun_durum");
+
+	$insert=$urunekle->execute(array(
+		'urun_ad' => $_POST['urun_ad'],
+		'urun_durum' => $_POST['urun_durum']
+	));
+
+	if($insert){
+		Header("Location:../adminPanel/urun.php?durum=ok");
+	}
+	else{
+		Header("Location:../adminPanel/urun-ekle.php?durum=no");
+	}
+}
+
+if (isset($_POST['urunduzenle'])) {
+	
+	$urunguncelle=$db->prepare("UPDATE urun SET 
+    urun=:urun,
+    urun_durum=:urun_durum
+    WHERE urun_id={$_POST['urun_id']}");
+
+$update=$urunguncelle->execute(array(
+'urun' => $_POST['urun'],
+'urun_durum' => $_POST['urun_durum']
+));
+
+if($update){
+header("Location:../adminPanel/urun.php?durum=ok");
+}
+else{
+header("Location:../adminPanel/urun.php?durum=no");
+}
+}
+
+
+if($_GET['urunsil']=="ok"){
+
+	$sil=$db->prepare("DELETE from urun WHERE urun_id=:id");
+	$kontrol=$sil->execute(array(
+		'id'=> $_GET['urun_id']));
+
+	if($kontrol){
+		header("Location:../adminPanel/urun.php?durum=ok");
+	}
+	else{
+		header("Location:../adminPanel/urun.php?durum=no");
+	}
+}
+
+
 
 ?>
