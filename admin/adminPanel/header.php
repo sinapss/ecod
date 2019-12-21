@@ -66,7 +66,7 @@
                   <li><a href="siparistakip.php"><i class="fa fa-money"></i>Sipariş Takip<span class="label label-success pull-right"></span></a></li>
                   <li><a href="urun.php"><i class="fa fa-cubes"></i>Ürün<span class="label label-success pull-right"></span></a></li>
                   <li><a href="kur.php"><i class="fa fa-turkish-lira"></i>Kur Yönetim<span class="label label-success pull-right"></span></a></li>
-                  <li><a href="iletisimpanel.php"><i class="fa fa-comment-o"></i>İletişim<span class="label label-success pull-right"></span></a></li>
+                  <li><a href="iletisim.php"><i class="fa fa-comment-o"></i>İletişim<span class="label label-success pull-right"></span></a></li>
                   <li><a href="slider.php"><i class="fa fa-camera"></i>Slider<span class="label label-success pull-right"></span></a></li>
                   <li><a href="iletisimistek.php"><i class="fa fa-mail-reply (alias)"></i>İletişim İstek<span class="label label-success pull-right"></span></a></li>
 

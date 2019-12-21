@@ -46,9 +46,7 @@ $kursor->execute();
                       <tbody>
 
                         <?php 
-                        $say=0;
-
-                        while ($kurcek=$kursor->fetch(PDO::FETCH_ASSOC)) { $say++ ?>
+                        while ($kurcek=$kursor->fetch(PDO::FETCH_ASSOC)) { ?>
                           <td><?php echo $kurcek["kur_id"];?></td>
                           <td><?php echo $kurcek["urun"];?></td>
                           <td><?php echo number_format($kurcek["fiyat"], 2, ',', '.');?><span class="badge badge-pill badge-success">TL</span></td>

@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 
-$iletisimsor=$db->prepare("SELECT * FROM anonim_iletisim");
+$iletisimsor=$db->prepare("SELECT * FROM iletisim_mesaj i inner join kullanici k on i.kullanici_id=k.kullanici_id");
 $iletisimsor->execute();
 ?>
         <!-- page content -->
@@ -23,7 +23,8 @@ $iletisimsor->execute();
                       ?>
                       </small>
                     </h2>
-                    
+                    <div align="right">
+                    </div>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -32,8 +33,12 @@ $iletisimsor->execute();
                    <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                       <thead>
                         <tr>
-                          <th>iletisim ID</th>
-                          <th>Msaj</th>
+                          <th>İletisim ID</th>
+                          <th>Kullanici ID</th>
+                          <th>Kullanici AD</th>
+                          <th>Kullanici SOYAD</th>
+                          <th>Mesajı</th>
+                          
                         </tr>
                       </thead>
 
@@ -44,9 +49,13 @@ $iletisimsor->execute();
 
                         while ($iletisimcek=$iletisimsor->fetch(PDO::FETCH_ASSOC)) { $say++ ?>
                           <td><?php echo $iletisimcek["iletisim_id"];?></td>
-                          <td><?php echo $iletisimcek["mesaj"];?></td>
-                   
-                          <td><center><a href="../erisim/islem.php?iletisim_id=<?php echo $iletisimcek['iletisim_id'];?>&iletisimisteksil=ok"><button class="btn btn-danger btn-xs">Sil</button></a></center></td>  
+                          <td><?php echo $iletisimcek["kullanici_id"];?></td>
+                          <td><?php echo $iletisimcek["kullanici_ad"];?></td>
+                          <td><?php echo $iletisimcek["kullanici_soyad"];?></td>
+                          <td><?php echo $iletisimcek["iletisim_soru"];?></td>
+
+                          <td><center><a href="../erisim/islem.php?iletisim_id=<?php echo $iletisimcek['iletisim_id'];?>&iletisimsil=ok"><button class="btn btn-danger btn-xs">Sil</button></a></center></td>  
+
                         <tr>                        
                         </tr>
                             

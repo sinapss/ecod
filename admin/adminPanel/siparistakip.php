@@ -1,4 +1,9 @@
 <?php include "header.php";
+
+
+$siparisGetir=$db->prepare("SELECT * FROM satis s inner join kullanici k on s.kullanici_id=k.kullanici_id inner join kur kr on kr.kur_id=s.kur_id inner join urun u on u.urun_id=kr.urun_id");
+$siparisGetir->execute();
+
 ?>
 
 
@@ -12,24 +17,19 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Kullanici Ayarları <small>,
-                     
+                    <?php
+                      if($_GET['durum']=="ok"){?>
+                        <b style="color: green;">İşlem Başarılı...</b>
+                      <?php } elseif ($_GET['durum']=="no") {?>
+                        <b style="color: red;">İşlem Başarısız...</b>
+                      <?php }
+                      ?>
                       </small>
                     </h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
+                    
+                    <div align="right">
+                      <a href="satis-ekle.php" class="btn btn-success btn-xs" >Yeni Ekle</a>
+                    </div>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -38,12 +38,13 @@
                    <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                       <thead>
                         <tr>
-                          <th>Kayıt Tarihi</th>
-                          <th>Ad</th>
-                          <th>Soyad</th>
-                          <th>Mail Adresi</th>
-                          <th>Telefon</th>
-                          <th>Dogum Tarihi</th>
+                          <th>Siparis ID</th>
+                          <th>Kullanici ID</th>
+                          <th>Kullanici Ad Soyad</th>
+                          <th>Urun</th>
+                          <th>Miktar</th>
+                          <th>Fiyat</th>
+                          <th>Satiş Tarihi</th>
                           <th></th>
                           <th></th>
                           
@@ -51,18 +52,28 @@
                       </thead>
 
                       <tbody>
-                          <td></td>  
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td><center><a href="#"><button class="btn btn-primary btn-xs">Düzenle</button></a></center></td>
+                      <?php 
+                        while ($sipariscek=$siparisGetir->fetch(PDO::FETCH_ASSOC)) { ?>
+                          <td><?php echo $sipariscek["satis_id"];?></td>
+                          <td><?php echo $sipariscek["kullanici_id"];?></td>
+                          <td><?php echo $sipariscek["kullanici_ad"]." ".$sipariscek["kullanici_soyad"];?></td>
+                          <td><?php echo $sipariscek["urun"];?></td>
+                          <td><?php echo number_format($sipariscek["miktar"], 2, ',', '.');?></td>
+                          <td><?php echo number_format($sipariscek["miktar"]* $sipariscek["fiyat"], 2, ',', '.');?><span class="badge badge-pill badge-success">TL</span></td>
+                          <td><?php echo $sipariscek["tarih"];?></td>
                           
-                          <td><center><a href="#"><button class="btn btn-danger btn-xs">Sil</button></a></center></td>  
+                          </center>
+                          </td>
+                          <td><center><a href="siparistakip-duzenle.php?satis_id=<?php echo $sipariscek['satis_id'];?>"><button class="btn btn-primary btn-xs">Düzenle</button></a></center></td>
+                          <td><center><a href="../erisim/islem.php?satis_id=<?php echo $sipariscek['satis_id'];?>&satissil=ok"><button class="btn btn-danger btn-xs">Sil</button></a></center></td>  
+
 
                         <tr>                        
                         </tr>
+                            
+                      <?php  }
+
+                         ?>
                         
                       </tbody>
                     </table>

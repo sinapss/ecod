@@ -331,6 +331,60 @@ if (isset($_POST['iletisimgonder'])) {
 	}
 }
 
+if($_GET['iletisimsil']=="ok"){
+
+	$sil=$db->prepare("DELETE from iletisim_mesaj WHERE iletisim_id=:id");
+	$kontrol=$sil->execute(array(
+		'id'=> $_GET['iletisim_id']));
+
+	if($kontrol){
+		header("Location:../adminPanel/iletisim.php?durum=ok");
+	}
+	else{
+		header("Location:../adminPanel/iletisim.php?durum=no");
+	}
+}
+
+
+if (isset($_POST['satisekle'])) {
+	
+
+	$urunekle=$db->prepare("INSERT INTO satis SET 
+		urun_id=:urun_id,
+		miktar=:miktar,
+		kur_id=:kur_id,
+		kullanici_id=:kullanici_id");
+
+	$insert=$urunekle->execute(array(
+		'urun_id' => $_POST['urun_id'],
+		'miktar'=>$_POST['miktar'],
+		'kur_id'=>$_POST['kur_id'],
+		'kullanici_id'=>$_POST['kullanici_id']
+	));
+
+	if($insert){
+		Header("Location:../adminPanel/siparistakip.php?durum=ok");
+	}
+	else{
+		Header("Location:../adminPanel/siparistakip.php?durum=no");
+	}
+}
+
+if($_GET['satissil']=="ok"){
+
+	$sil=$db->prepare("DELETE from satis WHERE satis_id=:id");
+	$kontrol=$sil->execute(array(
+		'id'=> $_GET['satis_id']));
+
+	if($kontrol){
+		header("Location:../adminPanel/siparistakip.php?durum=ok");
+	}
+	else{
+		header("Location:../adminPanel/siparistakip.php?durum=no");
+	}
+}
+
+
 
 
 ?>
