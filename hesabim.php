@@ -45,7 +45,6 @@
 				
 				<div class="form-group dob">
 					<div class="col-sm-12">
-						
 						<input type="text" class="form-control"  required="" name="kullanici_ad" value="<?php echo $kullanicicek['kullanici_ad']; ?>" placeholder="Adınızı Giriniz...">
 					</div>
 					
@@ -53,7 +52,6 @@
 
 				<div class="form-group dob">
 					<div class="col-sm-12">
-						
 						<input type="text" class="form-control"  required="" name="kullanici_soyad" value="<?php echo $kullanicicek['kullanici_soyad']; ?>" placeholder="Soyadınızı Giriniz...">
 					</div>
 					
@@ -67,37 +65,26 @@
 
 				<div class="form-group dob">
 					<div class="col-sm-12">
-						
-						<input type="text" class="form-control" disabled="" required="" name="kullanici_gsm" value="<?php echo $kullanicicek['kullanici_gsm']; ?>" placeholder="Kullanici Adiniz Olduğu için Değişim Yapamazsınız.">
+						<input type="text" class="form-control" disabled="" required="" name="kullanici_tel" value="<?php echo $kullanicicek['kullanici_tel']; ?>" placeholder="Kullanici Adiniz Olduğu için Değişim Yapamazsınız.">
 					</div>
-					
 				</div>
 
 				<div class="form-group dob">
 					<div class="col-sm-12">
-						
-						<input type="text" class="form-control"  required="" name="kullanici_il" value="<?php echo $kullanicicek['kullanici_il']; ?>" placeholder="İl Giriniz...">
+						<input type="text" class="form-control"  required="" name="kullanici_il" value="<?php echo $kullanicicek['il']; ?>" placeholder="İl Giriniz...">
 					</div>
-					
 				</div>
 
 				<div class="form-group dob">
 					<div class="col-sm-12">
-						
-						<input type="text" class="form-control"  required="" name="kullanici_ilce" value="<?php echo $kullanicicek['kullanici_ilce']; ?>" placeholder="İlçe Giriniz...">
+						<input type="text" class="form-control"  required="" name="kullanici_ilce" value="<?php echo $kullanicicek['ilce']; ?>" placeholder="İlçe Giriniz...">
 					</div>
-
-					<input type="hidden" class="form-control"  required="" name="kullanici_id" value="<?php echo $kullanicicek['kullanici_id']; ?>">
-					
 				</div>
 
 				<div class="form-group dob">
 					<div class="col-sm-12">
-						
-						
-						<textarea class="form-control" required="" name="kullanici_adres"  placeholder="Adresinizi Giriniz..."><?php echo $kullanicicek['kullanici_adres']; ?></textarea>
+						<textarea class="form-control" required="" name="kullanici_adres"  placeholder="Adresinizi Giriniz..."><?php echo $kullanicicek['adres']; ?></textarea>
 					</div>
-					
 				</div>
 
 

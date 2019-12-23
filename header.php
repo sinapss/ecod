@@ -1,4 +1,15 @@
-<?php include "admin/erisim/baglan.php"; ?>
+<?php 
+session_start();
+include "admin/erisim/baglan.php"; 
+$kullanicisor=$db->prepare("SELECT * FROM kullanici k inner join adres a on k.kullanici_tel=a.kullanici_tel inner join banka_bilgileri bb on bb.kullanici_tel=k.kullanici_tel where k.kullanici_tel=:kullanici_tel");
+$kullanicisor->execute(array(
+  'kullanici_tel' => $_SESSION['kullanici_tel']
+  ));
+$say=$kullanicisor->rowCount();
+$kullanicicek=$kullanicisor->fetch(PDO::FETCH_ASSOC);
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,22 +46,31 @@
 				<div class="col-md-8">
 					<div class="pushright">
 						<div class="top">
-							<a href="#" id="reg" class="btn btn-default btn-success">Giriş Yap<span>-- Veya --</span>Kayıt Ol</a>
+							<?php if (!isset($_SESSION['kullanici_tel'])) {?>
+							
+
+							<a href="#" id="reg" class="btn btn-default btn-success">Giriş Yap<span>-- yada --</span>Kayıt Ol</a>
+
+							<?php } else { ?>
+
+							<a href="#"  class="btn btn-default btn-info">Hoşgeldin<span>--</span><?php echo $kullanicicek['kullanici_ad'] ?></a>
+
+								<?php } ?>
 							<div class="regwrap">
 								<div class="row">
 									<div class="col-md-6 regform">
 										<div class="title-widget-bg">
 											<div class="title-widget">Giriş</div>
 										</div>
-										<form role="form">
+										<form role="form" method="POST" action="admin\erisim\islem.php">
 											<div class="form-group">
-												<input type="text" class="form-control" id="username" placeholder="Kullanıcı Adı">
+												<input type="text" class="form-control" name="kullanici_tel"  id="username" placeholder="Kullanıcı Telefon">
 											</div>
 											<div class="form-group">
-												<input type="password" class="form-control" id="password" placeholder="Parola">
+												<input type="password" class="form-control" name="kullanici_password" id="password" placeholder="Parola">
 											</div>
 											<div class="form-group">
-												<button class="btn btn-default btn-success btn-sm">Giriş Yap</button>
+												<button class="btn btn-default btn-success btn-sm" name="kullanicigiris">Giriş Yap</button>
 											</div>
 										</form>
 									</div>
@@ -87,7 +107,7 @@
 						</div>
 						<div class="navbar-collapse collapse">
 							<ul class="nav navbar-nav">
-								<li><a href="anasayfa.php"  >Anasayfa</a><div class="curve"></div></li>
+								<li><a href="anasayfa.php"  >AnaSayfa</a><div class="curve"></div></li>
 								<li><a href="kurlar.php" > Geri Dönüşüm Kurları</a></li>
 								<li><a href="nasil.php" >Nasıl Uygularım?</a></li>
                                 <li><a href="duyuru.php"  >Duyurular</a></li>
@@ -103,9 +123,17 @@
 
 	<div class="container">
 		<ul class="small-menu"><!--small-nav -->
-			<li><a href="hesabim.php" class="myacc">Hesabım</a></li>
-			<li><a href="satislarim.php" class="myshop">Satış Geçmişim</a></li>
-			<li><a href="" class="mycheck">Güvenli Çıkış</a></li>
+		<?php 
+
+		if (isset($_SESSION['kullanici_tel'])) {?>
+
+		<ul class="small-menu">
+  			<li><a href="hesabim.php" class="myacc">Hesap Bilgilerim</a></li>
+  			<li><a href="satislarim.php" class="myshop">Siparişlerim</a></li>
+  			<li><a href="logout.php" class="mycheck">Güvenli Çıkış</a></li>
+		</ul>
+
+		<?php } ?>
 		</ul><!--small-nav -->
 		<div class="clearfix"></div>
 		<div class="lines"></div>

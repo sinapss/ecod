@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "baglan.php";
 
 if(isset($_POST["kullanici_kaydet"])){
@@ -12,10 +13,7 @@ if(isset($_POST["kullanici_kaydet"])){
        $kullanici_parola_iki=($_POST['parola_iki']);
 
     if($kullanici_parola_bir==$kullanici_parola_iki){
-     
 
-        //parolanın 6 haneden büüykmü bakar
-        
             $kullanicisor=$db->prepare("select * from kullanici where kullanici_tel=:tel");
 			$kullanicisor->execute(array(
                 'tel'=>$kullanici_telefon
@@ -438,6 +436,59 @@ header("Location:../adminPanel/siparistakip.php?durum=ok");
 else{
 header("Location:../adminPanel/siparistakip.php?durum=no");
 }
+}
+
+if(isset($_POST["admingiris"])){
+	$kullanici_tel=$_POST["kullanici_tel"];
+	$kullanici_password=md5($_POST["kullanici_password"]);
+
+		$kullanicisor=$db->prepare("SELECT * FROM kullanici where kullanici_tel=:kullanici_tel and kullanici_password=:kullanici_password 
+		and kullanici_yetki=:kullanici_yetki");
+	$kullanicisor->execute(array(
+		'kullanici_tel'=> $kullanici_tel,
+		'kullanici_password'=> $kullanici_password,
+		'kullanici_yetki'=> 5
+			));
+			
+			$say=$kullanicisor->rowCount();
+
+	if($say==1){
+		$_SESSION['kullanici_tel']=$kullanici_tel;
+		echo $_SESSION['kullanici_tel'];
+		header("Location:admin.php");
+		exit;
+	}
+	else{
+		header("Location:index.php?durum=no");
+		exit;
+	}
+
+}
+
+if (isset($_POST['kullanicigiris'])) {
+
+
+	$kullanici_tel=$_POST['kullanici_tel']; 
+	$kullanici_password=md5($_POST['kullanici_password']); 
+
+	$kullanicisor=$db->prepare("select * from kullanici where kullanici_tel=:kullanici_tel and kullanici_yetki=:kullanici_yetki and kullanici_sifre=:kullanici_sifre");
+	$kullanicisor->execute(array(
+		'kullanici_tel' => $kullanici_tel,
+		'kullanici_yetki' => 0,
+		'kullanici_sifre' => $kullanici_password
+		));
+
+	$say=$kullanicisor->rowCount();
+
+	if ($say==1) {
+		$_SESSION['kullanici_tel']=$kullanici_tel;
+		echo $_SESSION['kullanici_tel'];
+		header("Location:../../anasayfa.php");
+		exit;	
+	} 
+	else {
+		header("Location:../../anasayfa.php?durum=basarisizgiris");
+	}
 }
 
 

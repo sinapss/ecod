@@ -1,4 +1,21 @@
-<?php include "../erisim/baglan.php"; ?>
+<?php
+session_start();
+include "../erisim/baglan.php";
+
+$kullanicisor=$db->prepare("SELECT * FROM kullanici where kullanici_tel=:kullanici_tel");
+$kullanicisor->execute(array(
+'kullanici_tel' => $_SESSION['kullanci_tel']
+));
+
+$say=$kullanicisor->rowCount();
+$kullanicicek=$kullanicisor->fetch(PDO::FETCH_ASSOC);
+if($say==0){
+  header("Location:login.php?durum=izinsiz");
+  exit;
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -49,7 +66,7 @@
               </div>
               <div class="profile_info">
                 <span>Hoşgeldin,</span>
-                <h2>Oğuz</h2>
+                <h2><?php echo $kullanicicek["kullanici_ad"]; ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -110,7 +127,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/resim.png" alt="">Oğuz Cenal
+                    <img src="images/resim.png" alt=""><?php $kullanicicek["kullanici_ad"]; ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -120,7 +137,7 @@
                         <span>Ayarlar</span>
                       </a>
                     </li>
-                    <li><a href="#"><i class="fa fa-sign-out pull-right"></i>Çıkış Yap</a></li>
+                    <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i>Çıkış Yap</a></li>
                   </ul>
                 </li>
 
