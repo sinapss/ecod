@@ -1,6 +1,6 @@
 <?php include "header.php";
 
-$kullaniciGetir=$db->prepare("SELECT * FROM kullanici k inner join adres a on a.kullanici_id=k.kullanici_id");
+$kullaniciGetir=$db->prepare("SELECT * FROM kullanici k inner join adres a on a.kullanici_tel=k.kullanici_tel");
 $kullaniciGetir->execute();
 ?>
 
@@ -15,6 +15,13 @@ $kullaniciGetir->execute();
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Kullanici Ayarları <small>,
+                    <?php
+                      if($_GET['durum']=="ok"){?>
+                        <b style="color: green;">İşlem Başarılı...</b>
+                      <?php } elseif ($_GET['durum']=="no") {?>
+                        <b style="color: red;">İşlem Başarısız...</b>
+                      <?php }
+                      ?>
                      
                       </small>
                     </h2>
@@ -57,7 +64,7 @@ $kullaniciGetir->execute();
                           <td><?php echo $kullaniciYaz["il"]; ?></td>
                           <td><?php echo $kullaniciYaz["ilce"]; ?></td>
                           <td><?php echo $kullaniciYaz["adres"]; ?></td>
-                          <td><center><a href="kullanici-duzenle.php?kullanici_id=<?php echo $kullaniciYaz['kullanici_id'];?>"><button class="btn btn-primary btn-xs">Düzenle</button></a></center></td>                          
+                          <td><center><a href="kullanici-duzenle.php?kullanici_tel=<?php echo $kullaniciYaz['kullanici_tel'];?>"><button class="btn btn-primary btn-xs">Düzenle</button></a></center></td>                          
                           <td><center><a href="../erisim/islem.php?kullanici_id=<?php echo $kullaniciYaz['kullanici_id'];?>&kullanicisil=ok"><button class="btn btn-danger btn-xs">Sil</button></a></center></td>  
 
                         <tr>                        

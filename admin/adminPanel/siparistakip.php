@@ -1,7 +1,7 @@
 <?php include "header.php";
 
 
-$siparisGetir=$db->prepare("SELECT * FROM satis s inner join kullanici k on s.kullanici_id=k.kullanici_id inner join kur kr on kr.kur_id=s.kur_id inner join urun u on u.urun_id=kr.urun_id");
+$siparisGetir=$db->prepare("SELECT * FROM satis s inner join kullanici k on s.kullanici_tel=k.kullanici_tel inner join kur kr on kr.kur_id=s.kur_id inner join urun u on u.urun_id=kr.urun_id order by satis_id desc");
 $siparisGetir->execute();
 
 ?>
@@ -41,6 +41,7 @@ $siparisGetir->execute();
                           <th>Siparis ID</th>
                           <th>Kullanici ID</th>
                           <th>Kullanici Ad Soyad</th>
+                          <th>Kullanici Tel</th>
                           <th>Urun</th>
                           <th>Miktar</th>
                           <th>Fiyat</th>
@@ -57,6 +58,7 @@ $siparisGetir->execute();
                           <td><?php echo $sipariscek["satis_id"];?></td>
                           <td><?php echo $sipariscek["kullanici_id"];?></td>
                           <td><?php echo $sipariscek["kullanici_ad"]." ".$sipariscek["kullanici_soyad"];?></td>
+                          <td><?php echo $sipariscek["kullanici_tel"];?></td>
                           <td><?php echo $sipariscek["urun"];?></td>
                           <td><?php echo number_format($sipariscek["miktar"], 2, ',', '.');?></td>
                           <td><?php echo number_format($sipariscek["miktar"]* $sipariscek["fiyat"], 2, ',', '.');?><span class="badge badge-pill badge-success">TL</span></td>

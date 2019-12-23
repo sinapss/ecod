@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 
-$iletisimsor=$db->prepare("SELECT * FROM anonim_iletisim");
+$iletisimsor=$db->prepare("SELECT * FROM anonim_iletisim order by iletisim_id desc");
 $iletisimsor->execute();
 ?>
         <!-- page content -->

@@ -2,14 +2,14 @@
 include 'header.php';
 
 
-$kullanicisor=$db->prepare("SELECT * FROM kullanici where kullanici_id=:id");
+$kullanicisor=$db->prepare("SELECT * FROM kullanici where kullanici_tel=:kullanici_tel");
 $kullanicisor->execute(array(
-'id' => $_GET['kullanici_id']
+'kullanici_tel' => $_GET['kullanici_tel']
 ));
 
-$kulaniciAdresgetir=$db->prepare("SELECT * FROM adres where kullanici_id=:id");
+$kulaniciAdresgetir=$db->prepare("SELECT * FROM adres where kullanici_tel=:kullanici_tel");
 $kulaniciAdresgetir->execute(array(
-  'id'=>$_GET['kullanici_id']
+  'kullanici_tel'=>$_GET['kullanici_tel']
 ));
 
 
@@ -100,9 +100,6 @@ $kullaniciAdresler=$kulaniciAdresgetir->fetch(PDO::FETCH_ASSOC);
                           <input type="text" id="first-name" name="kullanici_tel" value="<?php echo $kullanicicek['kullanici_tel'] ?>" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
-
-                        <input type="hidden" name="kullanici_id" value="<?php echo $kullanicicek['kullanici_id']; ?>">
-
                       
                       <div class="ln_solid"></div>
                       <div class="form-group">

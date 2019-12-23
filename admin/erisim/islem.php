@@ -82,7 +82,7 @@ if(isset($_POST["kullanici_kaydet"])){
 
                     if($ekle){
                         //header("Location:../../index.php?durum=loginbasarili");
-                        echo "kayit başarılı";
+                        Header("Location:../../anasayfa.php?kullanici_id=$kullanici_id&durum=ok");
 
                     }
                     else{//kayıt sırasında hata oluşursa
@@ -112,7 +112,7 @@ if (isset($_POST['kullaniciduzenle'])) {
 		kullanici_ad=:kullanici_ad,
 		kullanici_soyad=:kullanici_soyad,
 		kullanici_tel=:kullanici_tel 
-		WHERE kullanici_id={$_POST['kullanici_id']}");
+		WHERE kullanici_tel={$_POST['kullanici_tel']}");
 
 	$update=$kullaniciguncelle->execute(array(
 		'kullanici_ad' => $_POST['kullanici_ad'],
@@ -123,10 +123,10 @@ if (isset($_POST['kullaniciduzenle'])) {
 		il=:il,
 		ilce=:ilce,
 		adres=:adres 
-		WHERE kullanici_id={$_POST['kullanici_id']}");
+		WHERE kullanici_tel={$_POST['kullanici_tel']}");
 
 	$update=$kullaniciguncelle->execute(array(
-		'il' => $_POST['kullanici_id'],
+		'il' => $_POST['kullanici_il'],
 		'ilce' => $_POST['kullanici_ilce'],
 		'adres' => $_POST['kullanici_adres']));
 
@@ -384,13 +384,13 @@ if (isset($_POST['satisekle'])) {
 		urun_id=:urun_id,
 		miktar=:miktar,
 		kur_id=:kur_id,
-		kullanici_id=:kullanici_id");
+		kullanici_tel=:kullanici_tel");
 
 	$insert=$urunekle->execute(array(
 		'urun_id' => $_POST['urun_id'],
 		'miktar'=>$_POST['miktar'],
 		'kur_id'=>$_POST['kur_id'],
-		'kullanici_id'=>$_POST['kullanici_id']
+		'kullanici_tel'=>$_POST['kullanici_tel']
 	));
 
 	if($insert){
@@ -415,7 +415,30 @@ if($_GET['satissil']=="ok"){
 	}
 }
 
-
+if (isset($_POST['satisduzenle'])) {
+	
+	$satisguncelle=$db->prepare("UPDATE satis SET 
+    miktar=:miktar,
+	urun_id=:urun_id,
+	kullanici_tel=:kullanici_tel,
+	satisTarih=:satisTarih,
+	kur_id=:kur_id
+	WHERE satis_id={$_POST['satis_id']}");
+$update=$satisguncelle->execute(array(
+'miktar' => $_POST['miktar'],
+'urun_id'=>$_POST['urun_id'],
+'kullanici_tel'=>$_POST['kullanici_tel'],
+'satisTarih'=>$_POST['satisTarih'],
+'kur_id'=>$_POST['kur_id']
+));
+ 
+if($update){
+header("Location:../adminPanel/siparistakip.php?durum=ok");
+}
+else{
+header("Location:../adminPanel/siparistakip.php?durum=no");
+}
+}
 
 
 ?>

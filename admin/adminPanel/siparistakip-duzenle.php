@@ -40,19 +40,11 @@ $satiscek=$satissor->fetch(PDO::FETCH_ASSOC);
 
 
 
-                        <div class="form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Satis ID <span class="required">*</span>
+                    <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Satiş ID <span class="required">*</span>
                           </label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="first-name" name="satis" disabled="" value="<?php echo $satiscek['satis_id'] ?>" required="required" class="form-control col-md-7 col-xs-12">
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kullanıcı ID <span class="required">*</span>
-                          </label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="first-name" name="kullanici_id"  value="<?php echo $satiscek['kullanici_id'] ?>" required="required" class="form-control col-md-7 col-xs-12">
+                            <input type="text" id="first-name" name="satis_id"   value="<?php echo $satiscek['satis_id'] ?>" required="required" class="form-control col-md-7 col-xs-12">
                           </div>
                         </div>
 
@@ -65,7 +57,17 @@ $satiscek=$satissor->fetch(PDO::FETCH_ASSOC);
                         </div>
 
                         <div class="form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kullanıcı ID <span class="required">*</span>
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kullanici Telefon <span class="required">*</span>
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="first-name" name="kullanici_tel"  value="<?php echo $satiscek['kullanici_tel'] ?>" required="required" class="form-control col-md-7 col-xs-12">
+                          </div>
+                        </div>
+
+                        
+
+                        <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Urun ID <span class="required">*</span>
                           </label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="text" id="first-name" name="urun_id"  value="<?php echo $satiscek['urun_id'] ?>" required="required" class="form-control col-md-7 col-xs-12">
@@ -73,17 +75,21 @@ $satiscek=$satissor->fetch(PDO::FETCH_ASSOC);
                         </div>
 
                         <div class="form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Satıs Tarihi <span class="required">*</span>
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kur ID <span class="required">*</span>
                           </label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="first-name" name="satisTarih" disabled="" value="<?php echo $satiscek['satisTarih'] ?>" required="required" class="form-control col-md-7 col-xs-12">
+                            <input type="text" id="first-name" name="kur_id"  value="<?php echo $satiscek['kur_id'] ?>" required="required" class="form-control col-md-7 col-xs-12">
                           </div>
                         </div>
 
-                     
-                      
+                        <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Satıs Tarihi <span class="required">*</span>
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="first-name" name="satisTarih"  value="<?php echo $satiscek['satisTarih'] ?>" required="required" class="form-control col-md-7 col-xs-12">
+                          </div>
+                        </div>
 
-                      <input type="hidden" name="satis_id" value="<?php echo $satiscek['satis_id'];?>">
                       
                       <div class="ln_solid"></div>
                       <div class="form-group">

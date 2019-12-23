@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 
-$kursor=$db->prepare("SELECT * FROM kur k inner join urun u on k.urun_id=u.urun_id order by tarih");
+$kursor=$db->prepare("SELECT * FROM kur k inner join urun u on k.urun_id=u.urun_id order by tarih desc");
 $kursor->execute();
 ?>
         <!-- page content -->
