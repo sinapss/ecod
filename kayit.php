@@ -76,10 +76,10 @@
 					</div>
 					<div class="form-group dob">
 						<div class="col-sm-6">
-							<input type="text" class="form-control" name="guvenlik_kod" placeholder="Güvenlik Kodu">
+							<input type="text" class="form-control" name="guvenlik_kodu" placeholder="Güvenlik Kodu">
 						</div>
 						<div class="col-sm-6">
-							<input type="date" name="son_tarih" class="form-control">
+							<input type="date" name="son_kullanma_tarihi" class="form-control">
 						</div>
 					</div>
 					<input type="submit" value="kayit" name="kullanici_kaydet" class="btn btn-default btn-info">

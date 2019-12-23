@@ -87,11 +87,12 @@
 						</div>
 						<div class="navbar-collapse collapse">
 							<ul class="nav navbar-nav">
-								<li><a href="anasayfa.php" >Anasayfa</a><div class="curve"></div></li>
-								<li><a href="kurlar.php" class="active"> Geri Dönüşüm Kurları</a></li>
-                                <li><a href="duyuru.php">Duyurular</a></li>
-                                <li><a href="sss.php">S.S.S</a></li>
-                                <li><a href="iletisim.php">İletişim</a></li>
+								<li><a href="anasayfa.php"  >Anasayfa</a><div class="curve"></div></li>
+								<li><a href="kurlar.php" > Geri Dönüşüm Kurları</a></li>
+								<li><a href="nasil.php" >Nasıl Uygularım?</a></li>
+                                <li><a href="duyuru.php"  >Duyurular</a></li>
+                                <li><a href="sss.php" >S.S.S </a></li>
+                                <li><a href="iletisim.php" >İletişim</a></li>
 							</ul>
 						</div>
 					</div>

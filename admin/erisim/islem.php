@@ -43,6 +43,37 @@ if(isset($_POST["kullanici_kaydet"])){
                         'kullanici_sifre' => $sifre,
                         'kullanici_tel' => $kullanici_telefon,
                         'kullanici_yas' => $kullanici_dogum
+					));
+					//banka
+					$kullanicibankakaydet=$db->prepare("INSERT INTO banka_bilgileri SET
+					    kullanici_tel=:kullanici_tel,
+					    banka_adi=:banka_adi,
+					    kart_no=:kart_no,
+					    kart_sahibi=:kart_sahibi,
+                        son_kullanma_tarihi=:son_kullanma_tarihi,
+                        guvenlik_kodu=:guvenlik_kodu
+                    ");
+                    $eklee=$kullanicibankakaydet->execute(array(
+                        'kullanici_tel' => $_POST['telefon'],
+                        'banka_adi' => $_POST['banka_adi'],
+                        'kart_no' => $_POST['kart_no'],
+                        'kart_sahibi' => $_POST['kart_sahibi'],
+                        'son_kullanma_tarihi' => $_POST['son_kullanma_tarihi'],
+                        'guvenlik_kodu' => $_POST['guvenlik_kodu']
+					)); echo $eklee;
+					
+					//adres
+					$kullaniciadreskaydet=$db->prepare("INSERT INTO adres SET
+					    il=:il,
+					    ilce=:ilce,
+					    adres=:adres,
+						kullanici_tel=:kullanici_tel
+                    ");
+                    $eklee=$kullaniciadreskaydet->execute(array(
+                        'il' => $_POST['il'],
+                        'ilce' => $_POST['ilce'],
+						'adres' => $_POST['adres'],
+						'kullanici_tel'=>$_POST['telefon']
                     ));
 
                     
