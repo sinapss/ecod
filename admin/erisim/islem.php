@@ -438,32 +438,9 @@ header("Location:../adminPanel/siparistakip.php?durum=no");
 }
 }
 
-if(isset($_POST["admingiris"])){
-	$kullanici_tel=$_POST["kullanici_tel"];
-	$kullanici_password=md5($_POST["kullanici_password"]);
 
-		$kullanicisor=$db->prepare("SELECT * FROM kullanici where kullanici_tel=:kullanici_tel and kullanici_password=:kullanici_password 
-		and kullanici_yetki=:kullanici_yetki");
-	$kullanicisor->execute(array(
-		'kullanici_tel'=> $kullanici_tel,
-		'kullanici_password'=> $kullanici_password,
-		'kullanici_yetki'=> 5
-			));
-			
-			$say=$kullanicisor->rowCount();
 
-	if($say==1){
-		$_SESSION['kullanici_tel']=$kullanici_tel;
-		echo $_SESSION['kullanici_tel'];
-		header("Location:admin.php");
-		exit;
-	}
-	else{
-		header("Location:index.php?durum=no");
-		exit;
-	}
 
-}
 
 if (isset($_POST['kullanicigiris'])) {
 
@@ -549,5 +526,31 @@ if (isset($_POST['kullaniciduzenle'])) {
 
 }
 
+
+
+if(isset($_POST["admingiris"])){
+	$kullanici_tel=$_POST["kullanici_tel"];
+	$kullanici_password=md5($_POST["kullanici_password"]);
+
+		$kullanicisor=$db->prepare("SELECT * FROM kullanici where kullanici_tel=:kullanici_tel and kullanici_sifre=:kullanici_sifre 
+		and kullanici_yetki=:kullanici_yetki");
+	$kullanicisor->execute(array(
+		'kullanici_tel'=> $kullanici_tel,
+		'kullanici_sifre'=> $kullanici_password,
+		'kullanici_yetki'=> 5
+			));
+	echo $say=$kullanicisor->rowCount();
+
+	if($say==1){
+		$_SESSION['kullanici_tel']=$kullanici_tel;
+		header("Location:../adminPanel/admin.php");
+		exit;
+	}
+	else{
+		header("Location:../adminPanel/index.php?durum=no");
+		exit;
+	}
+
+}
 
 ?>

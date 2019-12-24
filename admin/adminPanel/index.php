@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Ecod Admin Giriş Paneli </title>
+    <link rel="shortcut icon" href="..\..\images\ecodIkon.png">
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +32,7 @@
         <div class="animate form login_form">
           <section class="login_content">
 
-            <form action="../netting/islem.php" method="POST">
+            <form action="../erisim/islem.php" method="POST">
 
               <h1> Admin Giriş Paneli   </h1>
               <div>

@@ -4,15 +4,16 @@ include "../erisim/baglan.php";
 
 $kullanicisor=$db->prepare("SELECT * FROM kullanici where kullanici_tel=:kullanici_tel");
 $kullanicisor->execute(array(
-'kullanici_tel' => $_SESSION['kullanci_tel']
+'kullanici_tel' => $_SESSION['kullanici_tel']
 ));
 
 $say=$kullanicisor->rowCount();
 $kullanicicek=$kullanicisor->fetch(PDO::FETCH_ASSOC);
 if($say==0){
-  header("Location:login.php?durum=izinsiz");
+  header("Location:index.php?durum=izinsiz");
   exit;
 }
+
 
 
 ?>
@@ -62,7 +63,7 @@ if($say==0){
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/resim.png" alt="..." class="img-circle profile_img">
+                <img src="..\..\images\user.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Hoşgeldin,</span>
@@ -127,7 +128,7 @@ if($say==0){
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/resim.png" alt=""><?php $kullanicicek["kullanici_ad"]; ?>
+                    <img src="..\..\images\user.png" alt=""><?php $kullanicicek["kullanici_ad"]; ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">

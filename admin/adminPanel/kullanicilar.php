@@ -1,6 +1,6 @@
 <?php include "header.php";
 
-$kullaniciGetir=$db->prepare("SELECT * FROM kullanici k inner join adres a on a.kullanici_tel=k.kullanici_tel");
+$kullaniciGetir=$db->prepare("SELECT * FROM kullanici k inner join adres a on a.kullanici_tel=k.kullanici_tel where kullanici_yetki=0");
 $kullaniciGetir->execute();
 ?>
 
