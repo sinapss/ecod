@@ -491,5 +491,63 @@ if (isset($_POST['kullanicigiris'])) {
 	}
 }
 
+if (isset($_POST['kullaniciduzenle'])) {
+
+	$kullaniciguncelle=$db->prepare("UPDATE kullanici SET 
+	kullanici_ad=:kullanici_ad,
+	kullanici_soyad=:kullanici_soyad,
+	kullanici_mail=:kullanici_mail,
+	kullanici_yas=:kullanici_yas
+	WHERE kullanici_tel={$_POST['kullanici_tel']}");
+
+	$update=$kullaniciguncelle->execute(array(
+	'kullanici_ad' => $_POST['kullanici_ad'],
+	'kullanici_soyad' => $_POST['kullanici_soyad'],
+	'kullanici_mail' => $_POST['kullanici_mail'],
+	'kullanici_yas' => $_POST['kullanici_yas']
+	));
+	
+	$adresguncelle=$db->prepare("UPDATE adres SET 
+	il=:il,
+	ilce=:ilce,
+	adres=:adres
+	WHERE kullanici_tel={$_POST['kullanici_tel']}");
+
+	$update=$adresguncelle->execute(array(
+		'il'=>$_POST['il'],
+		'ilce'=>$_POST['ilce'],
+		'adres'=>$_POST['adres']
+	));
+
+
+	$bankaguncelle=$db->prepare("UPDATE banka_bilgileri SET
+	banka_adi=:banka_adi,
+	kart_no=:kart_no,
+	kart_sahibi=:kart_sahibi,
+	son_kullanma_tarihi=:son_kullanma_tarihi,
+	guvenlik_kodu=:guvenlik_kodu
+	WHERE kullanici_tel={$_POST['kullanici_tel']}");
+
+	$update=$bankaguncelle->execute(array(
+		'banka_adi'=>$_POST['banka_adi'],
+		'kart_no'=>$_POST['kart_no'],
+		'kart_sahibi'=>$_POST['kart_sahibi'],
+		'son_kullanma_tarihi'=>$_POST['son_kullanma_tarihi'],
+		'guvenlik_kodu'=>$_POST['guvenlik_kodu']
+	));
+
+
+
+
+	if($update){
+	header("Location:../../hesabim.php?durum=basarili");
+	}
+	else{
+	header("Location:../../hesabim.php?durum=basarisiz");
+	}
+
+
+}
+
 
 ?>

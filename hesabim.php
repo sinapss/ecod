@@ -17,91 +17,92 @@
 		</div>
 	</div>
 
-	<form action="nedmin/netting/islem.php" method="POST" class="form-horizontal checkout" role="form">
-		<div class="row">
-			<div class="col-md-6">
-				<div class="title-bg">
-					<div class="title">Hesap Bilgilerim</div>
-				</div>
-
-				<?php 
-
-				if ($_GET['durum']=="basarili") {?>
-
-				<div class="alert alert-success">
-					<strong>Güncellendi!</strong> Girdiğiniz Bilgiler Güncellendi.
-				</div>
+	<form class="form-horizontal checkout" method="POST" action="admin/erisim/islem.php">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="title-bg">
+						<div class="title">Kişisel Detaylar</div>
+					</div>
+					<div class="form-group dob">
+						<div class="col-sm-6">
+							<input type="text" class="form-control"  name="kullanici_ad" value="<?php echo $kullanicicek["kullanici_ad"]; ?>" placeholder="İsim">
+						</div>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" name="kullanici_soyad" value="<?php echo $kullanicicek["kullanici_soyad"]; ?>" placeholder="Soyisim">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-12">
+							<input type="text" class="form-control" name="kullanici_mail" value="<?php echo $kullanicicek["kullanici_mail"]; ?>" placeholder="Email">
+						</div>
+					</div>
+					<div class="form-group dob">
+						<div class="col-sm-6">
+							<input type="text" class="form-control" disabled value="<?php echo $kullanicicek["kullanici_tel"]; ?>" placeholder="Telefon">
+						</div>
+						<div class="col-sm-6">
+							<input type="date" class="form-control" name="kullanici_yas" value="<?php echo $kullanicicek["kullanici_yas"]; ?>" placeholder="Dogum Tarihi">
+						</div>
+                    </div>
 					
-				<?php } elseif ($_GET['durum']=="basarisiz") {?>
-
-				<div class="alert alert-danger">
-					<strong>Hata!</strong> Güncelleme Başarısız.
+					<div class="title-bg">
+						<div class="title">Banka Bilgileri</div>
+					</div>
+					<div class="form-group dob">
+						<div class="col-sm-12">
+							<input type="text" class="form-control" name="banka_adi" value="<?php echo $kullanicicek["banka_adi"]; ?>" placeholder="Banka Adı">
+						</div>
+                    </div>
+                    <div class="form-group dob">
+						<div class="col-sm-12">
+							<input type="text" class="form-control" name="kart_sahibi" value="<?php echo $kullanicicek["kart_sahibi"]; ?>" placeholder="Kart üzerindeki isim">
+						</div>
+                    </div>
+                    <div class="form-group dob">
+						<div class="col-sm-12">
+							<input type="text" class="form-control" name="kart_no" value="<?php echo $kullanicicek["kart_no"]; ?>" placeholder="Kart No">
+						</div>
+					</div>
+					<div class="form-group dob">
+						<div class="col-sm-6">
+							<input type="text" class="form-control" name="guvenlik_kodu" value="<?php echo $kullanicicek["guvenlik_kodu"]; ?>" placeholder="Güvenlik Kodu">
+						</div>
+						<div class="col-sm-6">
+							<input type="date" name="son_kullanma_tarihi" value="<?php echo $kullanicicek["son_kullanma_tarihi"]; ?>" class="form-control">
+						</div>
+					</div>
+					<input type="submit" value="Güncelle" name="kullaniciduzenle" class="btn btn-default btn-success">
 				</div>
-					
-				<?php }
-				 ?>
+				<div class="col-md-6">
+					<div class="title-bg">
+						<div class="title">Adresiniz</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-6">
+							<input type="text" class="form-control" name="il" value="<?php echo $kullanicicek["il"]; ?>" placeholder="İL">
+                        </div>
+                        <div class="col-sm-6">
+							<input type="text" class="form-control" name="ilce" value="<?php echo $kullanicicek["ilce"]; ?>" placeholder="İLÇE">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-12">
+							<input type="text" class="form-control" name="adres" value="<?php echo $kullanicicek["adres"]; ?>" placeholder="Adres">
+						</div>
+					</div>
 
-
-				
-				<div class="form-group dob">
-					<div class="col-sm-12">
-						<input type="text" class="form-control"  required="" name="kullanici_ad" value="<?php echo $kullanicicek['kullanici_ad']; ?>" placeholder="Adınızı Giriniz...">
+					<div class="form-group">
+						<div class="col-sm-12">
+							<input type="hidden" class="form-control" name="kullanici_tel" value="<?php echo $kullanicicek["kullanici_tel"]; ?>" placeholder="Adres">
+						</div>
 					</div>
 					
-				</div>
-
-				<div class="form-group dob">
-					<div class="col-sm-12">
-						<input type="text" class="form-control"  required="" name="kullanici_soyad" value="<?php echo $kullanicicek['kullanici_soyad']; ?>" placeholder="Soyadınızı Giriniz...">
-					</div>
-					
-				</div>
-
-				<div class="form-group">
-					<div class="col-sm-12">
-						<input type="email" class="form-control"  required="" name="kullanici_mail" value="<?php echo $kullanicicek['kullanici_mail']; ?>"  placeholder="Mail Adresinizi Giriniz.">
-					</div>
-				</div>
-
-				<div class="form-group dob">
-					<div class="col-sm-12">
-						<input type="text" class="form-control" disabled="" required="" name="kullanici_tel" value="<?php echo $kullanicicek['kullanici_tel']; ?>" placeholder="Kullanici Adiniz Olduğu için Değişim Yapamazsınız.">
-					</div>
-				</div>
-
-				<div class="form-group dob">
-					<div class="col-sm-12">
-						<input type="text" class="form-control"  required="" name="kullanici_il" value="<?php echo $kullanicicek['il']; ?>" placeholder="İl Giriniz...">
-					</div>
-				</div>
-
-				<div class="form-group dob">
-					<div class="col-sm-12">
-						<input type="text" class="form-control"  required="" name="kullanici_ilce" value="<?php echo $kullanicicek['ilce']; ?>" placeholder="İlçe Giriniz...">
-					</div>
-				</div>
-
-				<div class="form-group dob">
-					<div class="col-sm-12">
-						<textarea class="form-control" required="" name="kullanici_adres"  placeholder="Adresinizi Giriniz..."><?php echo $kullanicicek['adres']; ?></textarea>
-					</div>
-				</div>
-
-
-
-				<button type="submit" name="kullaniciguncelle" class="btn btn-default btn-red">Güncelle</button>
+                </div>
+                <div class="col-md-6" >
+                    <img src="images\user.png" width="100%" height="100%" alt="" class="responsive">
+                </div>
 			</div>
-			<div class="col-md-6">
-				<div class="title-bg">
-					<div class="title">Şifrenizi mi Unuttunuz?</div>
-				</div>
-
-
-				<center><img width="400" src="dimg/sifre.png"></center>
-			</div>
-		</div>
-	</div>
-</form>
+        </form>
 <div class="spacer"></div>
 </div>
 
