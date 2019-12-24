@@ -55,6 +55,7 @@ $siparisGetir->execute();
                       <tbody>
                       <?php 
                         while ($sipariscek=$siparisGetir->fetch(PDO::FETCH_ASSOC)) { ?>
+                         <tr>
                           <td><?php echo $sipariscek["satis_id"];?></td>
                           <td><?php echo $sipariscek["kullanici_id"];?></td>
                           <td><?php echo $sipariscek["kullanici_ad"]." ".$sipariscek["kullanici_soyad"];?></td>
@@ -70,7 +71,7 @@ $siparisGetir->execute();
                           <td><center><a href="../erisim/islem.php?satis_id=<?php echo $sipariscek['satis_id'];?>&satissil=ok"><button class="btn btn-danger btn-xs">Sil</button></a></center></td>  
 
 
-                        <tr>                        
+                                               
                         </tr>
                             
                       <?php  }
