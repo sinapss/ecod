@@ -1,7 +1,10 @@
 <?php
 include 'header.php';
 
-
+$urunGetir=$db->prepare("SELECT * FROM urun");
+$urunGetir->execute();
+$kurGetir=$db->prepare("SELECT * FROM kur order by kur_id desc");
+$kurGetir->execute();
 
 ?>
 
@@ -36,7 +39,11 @@ include 'header.php';
                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Urun ID <span class="required">*</span>
                           </label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="first-name" name="urun_id" placeholder="Ürün ID..." required="required" class="form-control col-md-7 col-xs-12">
+                            <select name="urun_id" class="form-control col-md-7 col-xs-12">
+                              <?php while($urunCek=$urunGetir->fetch(PDO::FETCH_ASSOC)) { ?>
+                                <option value="<?php echo $urunCek["urun_id"]; ?>"><?php echo $urunCek["urun_id"]." ".$urunCek["urun"]; ?></option>
+                              <?php }?>
+                            </select>
                           </div>
                         </div>
                       
@@ -52,8 +59,12 @@ include 'header.php';
                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kur ID <span class="required">*</span>
                           </label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="first-name" name="kur_id" placeholder="Kur ID..." required="required" class="form-control col-md-7 col-xs-12">
-                          </div>
+                          <select name="kur_id" class="form-control col-md-7 col-xs-12">
+                              <?php while($kurCek=$kurGetir->fetch(PDO::FETCH_ASSOC)) { ?>
+                                <option value="<?php echo $kurCek["kur_id"]; ?>"><?php echo "KurID=".$kurCek["kur_id"]." Fiyatı=".$kurCek["fiyat"]."TL UrunID= ".$kurCek["urun_id"]; ?></option>
+                              <?php } ?>
+                            </select>
+                        </div>
                         </div>
 
                         <div class="form-group">

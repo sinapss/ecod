@@ -3,7 +3,7 @@ session_start();
 
 
 session_destroy();
-header("Location:login.php?durum=exit");
+header("Location:index.php?durum=exit");
 
 
 ?>

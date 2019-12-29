@@ -39,7 +39,6 @@ $siparisGetir->execute();
                       <thead>
                         <tr>
                           <th>Siparis ID</th>
-                          <th>Kullanici ID</th>
                           <th>Kullanici Ad Soyad</th>
                           <th>Kullanici Tel</th>
                           <th>Urun</th>
@@ -57,7 +56,6 @@ $siparisGetir->execute();
                         while ($sipariscek=$siparisGetir->fetch(PDO::FETCH_ASSOC)) { ?>
                          <tr>
                           <td><?php echo $sipariscek["satis_id"];?></td>
-                          <td><?php echo $sipariscek["kullanici_id"];?></td>
                           <td><?php echo $sipariscek["kullanici_ad"]." ".$sipariscek["kullanici_soyad"];?></td>
                           <td><?php echo $sipariscek["kullanici_tel"];?></td>
                           <td><?php echo $sipariscek["urun"];?></td>

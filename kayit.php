@@ -1,4 +1,10 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php';
+
+$ilGetir=$db->prepare("SELECT * FROM iller");
+$ilGetir->execute();
+$ilceGetir=$db->prepare("SELECT * FROM ilceler");
+$ilceGetir->execute();
+?>
 
 
 <div class="container">
@@ -90,10 +96,16 @@
 					</div>
 					<div class="form-group">
 						<div class="col-sm-6">
-							<input type="text" class="form-control" name="il" placeholder="İL">
+							<select name="il" class="form-control">
+							<?php	while ($ilCek=$ilGetir->fetch(PDO::FETCH_ASSOC)) { ?>
+							<option value="<?php echo $ilCek["isim"]; ?>"><?php echo $ilCek["isim"]; ?></option><?php } ?>
+							</select>
                         </div>
                         <div class="col-sm-6">
-							<input type="text" class="form-control" name="ilce" placeholder="İLÇE">
+							<select name="ilce" class="form-control">
+							<?php	while ($ilceCek=$ilceGetir->fetch(PDO::FETCH_ASSOC)) { ?>
+							<option value="<?php echo $ilceCek["isim"]; ?>"><?php echo $ilceCek["isim"]; ?></option><?php } ?>
+							</select>
 						</div>
 					</div>
 					<div class="form-group">
